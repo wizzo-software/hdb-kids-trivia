@@ -1,0 +1,42 @@
+{
+  "name": "matana-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "cross-env VUE_APP_TARGET_PLATFORM=web vue-cli-service serve",
+    "build:web": "cross-env VUE_APP_TARGET_PLATFORM=web vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "build:ios": "cross-env VUE_APP_TARGET_PLATFORM=ios vue-cli-service build",
+    "serve:ios": "cross-env VUE_APP_TARGET_PLATFORM=ios vue-cli-service serve",
+    "build:android": "cross-env VUE_APP_TARGET_PLATFORM=android vue-cli-service build --skip-plugins @vue/cli-plugin-eslint && powershell -ExecutionPolicy Bypass -File build.ps1",
+    "publish:android": "cross-env VUE_APP_TARGET_PLATFORM=android vue-cli-service build --skip-plugins @vue/cli-plugin-eslint && powershell -ExecutionPolicy Bypass -File build_publish.ps1",
+    "gitpush": "git add . && git commit -m \"XXX\" && git push",
+    "clear": "rmdir /s /q node_modules && del package-lock.json && npm install"
+  },
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "vue": "^3.2.13",
+    "vue-axios": "^3.5.2",
+    "vue-router": "^4.0.3",
+    "vue-sweetalert2": "^5.0.5",
+    "vue3-click-away": "^1.2.4",
+    "vuex": "^4.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "basic-ftp": "^5.0.5",
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@fortawesome/fontawesome-free": "^6.5.2",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "sass": "^1.32.7",
+    "sass-loader": "^12.0.0"
+  }
+}

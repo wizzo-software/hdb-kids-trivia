@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+
+
+    <link rel="icon" href="<%= BASE_URL %>icon.svg">
+    <title>סאנדיי - ניהול משימות</title>
+    <meta property="og:image" content="https://www.wizzo.co.il/media/seo/5159_wide_1200X627.webp"/>
+    <meta name="description" content="תכלס המערכת הכי טובה ביקום" />
+   
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <% if (process.env.VUE_APP_TARGET_PLATFORM === 'android' || process.env.VUE_APP_TARGET_PLATFORM === 'ios') { %>
+
+    <!-- built files will be auto injected -->
+    <script src="cordova.js"></script>
+    <script>window.cordova = cordova; </script>
+
+<script>
+document.addEventListener('deviceready', () => {
+
+  window.open = cordova.InAppBrowser.open;
+  
+  universalLinks.subscribe('deeplink_ndl_article', function (eventData) {
+    check_if_loaded(eventData.path) 
+  });
+      
+  function locate(path) {
+    window.appVue.$router.push(path);
+    return true;
+  }
+
+  function check_if_loaded(path,id){
+    
+    if(window.appVue && window.appVue.loaded) 
+    {
+      //window.appVue.addClickToPush(id);
+
+      return locate(path);
+    }
+
+    setTimeout(function() {
+
+      check_if_loaded(path,id);
+
+      }, 200);
+  }
+
+  window.cordova.plugins.firebase.messaging.onBackgroundMessage(function(payload) {
+    if(payload.link != '')
+    {
+      setTimeout(() => { 
+        //window.appVue.addClickToPush(payload.id);
+        window.appVue.$router.push(payload.link);
+      }, 500)
+    }
+  
+  });
+    
+  cordova.plugins.firebase.messaging.clearNotifications(function() {
+      console.log("Notification messages cleared successfully");
+  });
+
+  
+  var permissions = cordova.plugins.permissions;
+
+  permissions.requestPermission(permissions.POST_NOTIFICATIONS, () => {
+    window.cordova.plugins.firebase.messaging.subscribe("main").then(function(data){});
+  }, () => {});
+
+  
+});
+
+</script>
+<% } %>
+
+  </body>
+</html>
