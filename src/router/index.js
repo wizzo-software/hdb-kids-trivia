@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, createWebHashHistory  } from 'vue-router'
 
 import Home from '../views/home.vue'
+import game from '../views/game.vue'
 
 import Page2 from '../views/page2.vue'
 
@@ -11,6 +12,7 @@ const routes = [
   { path: '/', name:'home', component: Home, alias: ['/index.html'], meta: { target: 1 } },
   { path: '/index.html', redirect: '/' },
 
+  { path: '/game', name:'game', component: game, meta: { target: 2 } },
   { path: '/page2', name:'page2', component: Page2, meta: { target: 2 } },
 
 	{ path: "/:catchAll(.*)", name: "404",component: NotFound,props: { footer: true, header: true, footerArticles: true }, meta: { target: 1 }},

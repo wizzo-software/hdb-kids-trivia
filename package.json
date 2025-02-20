@@ -6,6 +6,7 @@
     "serve": "cross-env VUE_APP_TARGET_PLATFORM=web vue-cli-service serve",
     "build:web": "cross-env VUE_APP_TARGET_PLATFORM=web vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "publish:web": "cross-env VUE_APP_TARGET_PLATFORM=web vue-cli-service build && node deploy.js",
     "build:ios": "cross-env VUE_APP_TARGET_PLATFORM=ios vue-cli-service build",
     "serve:ios": "cross-env VUE_APP_TARGET_PLATFORM=ios vue-cli-service serve",
     "build:android": "cross-env VUE_APP_TARGET_PLATFORM=android vue-cli-service build --skip-plugins @vue/cli-plugin-eslint && powershell -ExecutionPolicy Bypass -File build.ps1",
@@ -23,8 +24,6 @@
     "vuex": "^4.0.0"
   },
   "devDependencies": {
-    "dotenv": "^16.4.5",
-    "basic-ftp": "^5.0.5",
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@fortawesome/fontawesome-free": "^6.5.2",
@@ -33,7 +32,9 @@
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "basic-ftp": "^5.0.5",
     "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "sass": "^1.32.7",

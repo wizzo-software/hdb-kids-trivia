@@ -256,15 +256,10 @@ const globalMixin = {
         if (this.isNull(func)) func = function(){};
     
          var headers = {
-           'Content-Type': 'application/json; charset=utf-8',
+           'Content-Type': 'application/json;',
          };
 
-         if(!this.isNull(localStorage.getItem('user_token'))) 
-         { 
-           headers.Authorization = localStorage.getItem('user_token');
-         }
-         headers.platform = (window.location.hostname == 'localhost' ? '' : window.location.hostname);
-        //  headers.platform = 'wizzo.app.sunday.coffee'; // FOR TESTS ONLY!!
+       
 
 //       var requestOBJ;
          const cancelTokenSource = axios.CancelToken.source();

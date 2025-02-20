@@ -15,7 +15,7 @@ import '@fortawesome/fontawesome-free/js/all.js'
 
 import './css/tooltip.scss' 
 
-window.api_url = 'https://goodpeople.newdev.wizzo.co.il/api/'; 
+window.api_url = 'https://kids.hidabroot.org/api/'; 
 
 window.title_orig = document.title;
 
