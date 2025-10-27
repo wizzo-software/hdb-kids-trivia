@@ -56,11 +56,11 @@ a { user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-us
 
   .box {
     &.paddme { padding: var(--gap);}
-    background-color: #fff;
+    background-color: rgba(30, 30, 50, 0.8);
     position: relative;
     border-width: 0;
     box-shadow: var(--radius);
-    border: 1px solid transparent;
+    border: 1px solid rgba(167, 139, 250, 0.2);
     border-radius: var(--radius);
     padding: 0 25px;
     
@@ -90,8 +90,8 @@ a { user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-us
   
 
 
-html, body {  padding: 0px; margin:0px;   background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%); text-align: right; color:#333; font-size: 18px; /*scroll-behavior: smooth;*/ }
-a{ color:#333; text-decoration:none; outline:none;}
+html, body {  padding: 0px; margin:0px;   background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%); text-align: right; color:#f3f4f6; font-size: 18px; /*scroll-behavior: smooth;*/ }
+a{ color:#c4b5fd; text-decoration:none; outline:none;}
 
 html, body, input, textarea, select{ font-size:16px; font-family: var(--font); }
 * { box-sizing: border-box; padding: 0px; margin: 0px; font-family: var(--font); -webkit-tap-highlight-color: transparent; letter-spacing: -0.01em;}
@@ -164,7 +164,7 @@ a { cursor: pointer;}
   bottom: -100px;
   width: 40px;
   height: 40px;
-  background: #f1f1f1;
+  background: rgba(167, 139, 250, 0.1);
   border-radius: 50%;
   opacity: 0.5;
   animation: rise 10s infinite ease-in;

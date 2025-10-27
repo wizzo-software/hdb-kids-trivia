@@ -18,34 +18,18 @@
 </template>
 
 <script>
-
-
-
-
-
-
-
 export default {
   name: 'app',
-  components: { 
-    
-   },
   data(){
     return {
       loaded: false,
       all_time_leaders: [],
       monthly_leaders: [],
- 
     }
   },
   mounted() {
-
     window.appVue = this;
-
-   
-
     this.reload();
-
   },
   methods:{
     reload(){
