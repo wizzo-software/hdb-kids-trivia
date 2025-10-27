@@ -8,7 +8,7 @@
       </div>
     </main>
 
-    <Footer />
+    <Footer />   
 
     <div id="loading_animation" v-if="!loaded">
       <div id="spinner_ajax"></div>
