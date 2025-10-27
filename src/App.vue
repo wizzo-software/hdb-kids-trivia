@@ -11,7 +11,7 @@
     <Footer />   
 
     <div id="loading_animation" v-if="!loaded">
-      <div id="spinner_ajax"></div>
+      <div id="spinner_ajax"></div> 
     </div>
   </div>
   <Share />
