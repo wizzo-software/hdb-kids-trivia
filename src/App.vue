@@ -23,7 +23,7 @@ export default {
   data(){
     return {
       loaded: false,
-      all_time_leaders: [],
+      all_time_leaders: [], 
       monthly_leaders: [],
     }
   },
